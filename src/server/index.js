@@ -26,6 +26,7 @@ const onError = (error) => {
 
 const expressServer = () => {
   app.use('/todo', todoList);
+  app.use(express.static(__dirname + '/static'));
 
   app
     .listen(port, () => {
