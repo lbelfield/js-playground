@@ -1,4 +1,5 @@
 import express from 'express';
+import todoList from './routes/todoList';
 
 const app = express();
 const { PORT, URL } = process.env;
@@ -24,14 +25,13 @@ const onError = (error) => {
 };
 
 const expressServer = () => {
-  app.get('/', (req, res) => {
-    res.send('Hello World');
-  });
+  app.use('/todo', todoList);
 
-  app.listen(port, () => {
-    console.log(`Example app listening at ${URL}${port}`)
-  })
-  .on('error', onError);
+  app
+    .listen(port, () => {
+      console.log(`Example app listening at ${URL}${port}`);
+    })
+    .on('error', onError);
 
   return app;
 };
