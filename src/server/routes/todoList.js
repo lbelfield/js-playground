@@ -1,24 +1,38 @@
 import express from 'express';
+import createError from 'http-errors';
+
 import get from '../axios/get';
 
 const { TODO_LIST_URL } = process.env;
 
-let router = express.Router();
+const router = express.Router();
 
-const todoListRouting = async () => {
-  const todoList = await get(TODO_LIST_URL);
-
-  router.get('/', (req, res) => {
+router.get('/', async (req, res, next) => {
+  try {
+    const todoList = await get(TODO_LIST_URL);
     res.json(todoList);
-  });
-  
-  router.get('/id/:id', (req, res) => {
+  } catch (error) {
+    if (error.response) { // handle axios error response
+      next(createError(error.response.status, error.message));
+      return;
+    }
+    next(error);
+  }
+});
+
+router.get('/id/:id', async (req, res, next) => {
+  try {
+    const todoList = await get(TODO_LIST_URL);
     const queryParamsId = req.params.id;
     const todoItem = todoList.filter((item) => item.id == queryParamsId);
     res.json(todoItem);
-  });
-}
-
-todoListRouting();
+  } catch (error) {
+    if (error.response) { // handle axios error response
+      next(createError(error.response.status, error.message));
+      return;
+    }
+    next(error);
+  }
+});
 
 export default router;

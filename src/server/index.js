@@ -25,8 +25,19 @@ const onError = (error) => {
 };
 
 const expressServer = () => {
+  app.use('/', express.static(__dirname + '/static', { index: "homepage.html" }));
   app.use('/todo', todoList);
   app.use(express.static(__dirname + '/static'));
+
+  app.use((error, req, res, next) => {
+    if (error.status) {
+      res.status(error.status);
+      res.send(error.message);
+      return;
+    }
+    res.status(500);
+    res.send(error.message);
+  });
 
   app
     .listen(port, () => {
