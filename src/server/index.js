@@ -1,5 +1,8 @@
 import express from 'express';
+
+import apiUser from './api/users';
 import todoList from './routes/todoList';
+import login from './routes/login';
 
 const app = express();
 const { PORT, URL } = process.env;
@@ -25,7 +28,10 @@ const onError = (error) => {
 };
 
 const expressServer = () => {
+  app.use('/api/users', apiUser);
+
   app.use('/', express.static(__dirname + '/static', { index: "homepage.html" }));
+  app.use('/login', login);
   app.use('/todo', todoList);
   app.use(express.static(__dirname + '/static'));
 
