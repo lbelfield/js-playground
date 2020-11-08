@@ -1,1 +1,2 @@
-import Form from './client/form'; // webpack -> dist folder. But not https://www.valentinog.com/blog/babel/
+import boot from './client/boot'; // webpack -> dist folder. But not https://www.valentinog.com/blog/babel/
+boot();

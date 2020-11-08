@@ -35,9 +35,3 @@ class Form extends Component {
 }
 
 export default Form;
-
-if (typeof window !== 'undefined') {
-  console.log("hit");
-  const wrapper = document.getElementById("container");
-  wrapper ? ReactDOM.render(<Form />, wrapper) : false;
-}
