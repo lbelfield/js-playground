@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   constructor() {
@@ -22,16 +22,27 @@ class Form extends Component {
   }
 
   render() {
+    const { placeholder } = this.props;
+
     return (
       <form>
         <input
           type="text"
           value={this.state.value}
+          placeholder={placeholder}
           onChange={this.handleChange}
         />
       </form>
     );
   }
+}
+
+Form.propTypes = {
+  placeholder: PropTypes.string.isRequired,
+}
+
+Form.defaultProps = {
+  placeholder: 'default',
 }
 
 export default Form;

@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Form from './form';
+import Homepage from './homepage';
 
 const boot = () => {
   if (typeof window !== 'undefined') {
     const wrapper = document.getElementById("container");
-    wrapper ? ReactDOM.render(<Form />, wrapper) : false;
+    wrapper ? ReactDOM.render(<Homepage />, wrapper) : false;
   }
 }
 
