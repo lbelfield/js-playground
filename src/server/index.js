@@ -5,8 +5,8 @@ import todoList from './routes/todoList';
 import login from './routes/login';
 
 const app = express();
-const { PORT, URL } = process.env;
-const port = parseInt(PORT, 10);
+const { PORT_EXPRESS, URL } = process.env;
+const port = parseInt(PORT_EXPRESS, 10);
 
 const onError = (error) => {
   if (error.syscall !== 'listen') {
@@ -28,9 +28,9 @@ const onError = (error) => {
 };
 
 const expressServer = () => {
-  app.use('/api/users', apiUser);
-
   app.use('/', express.static(__dirname + '/static', { index: "homepage.html" }));
+
+  app.use('/api/users', apiUser);
   app.use('/login', login);
   app.use('/todo', todoList);
   app.use(express.static(__dirname + '/static'));

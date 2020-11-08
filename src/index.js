@@ -1,7 +1,1 @@
-import dotenv from 'dotenv';
-import path from 'path';
-
-dotenv.config({ path: path.join(__dirname, '../.env') });
-
-const expressServer = require('./server').default;
-expressServer();
+import Form from './client/form'; // webpack -> dist folder. But not https://www.valentinog.com/blog/babel/
