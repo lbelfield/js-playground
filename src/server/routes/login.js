@@ -3,7 +3,7 @@ import express from 'express';
 import post from '../axios/post';
 
 const router = express.Router();
-const {URL, PORT_EXPRESS} = process.env;
+const { URL, PORT_EXPRESS } = process.env;
 
 router.get('/:id', async (req, res, next) => {
   try {

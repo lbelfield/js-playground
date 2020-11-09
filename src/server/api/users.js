@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 const router = express.Router();
 
 router.use(bodyParser.json()); // support json encoded bodies
-router.use(bodyParser.urlencoded({extended: true})); // support encoded bodies
+router.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 router.post('/', (req, res, next) => {
   const userId = req.body.id;

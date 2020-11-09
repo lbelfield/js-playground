@@ -5,7 +5,7 @@ import todoList from './routes/todoList';
 import login from './routes/login';
 
 const app = express();
-const {PORT_EXPRESS, URL} = process.env;
+const { PORT_EXPRESS, URL } = process.env;
 const port = parseInt(PORT_EXPRESS, 10);
 
 const onError = (error) => {

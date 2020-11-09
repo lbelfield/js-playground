@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ({placeholder, handleChange, value}) => {
+const Form = (props) => {
+  const { placeholder, handleChange, value } = props;
+
   return (
     <form>
       <input

@@ -20,7 +20,7 @@ class Homepage extends Component {
   }
 
   handleChange(event) {
-    const {value} = event.target;
+    const { value } = event.target;
     this.setState(() => {
       return {
         value,
