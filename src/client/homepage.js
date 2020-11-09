@@ -1,19 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Form from './form';
 
-const handleClick = () => {
-  console.log('The link was clicked.');
-}
+class Homepage extends Component {
+  constructor() {
+    super();
 
-const Homepage = () => {
-  return (
-    <div>
-      <h2>hi</h2>
-      <Form placeholder="hello" />
-      <button onClick={() => handleClick()}>Submit</button>
-    </div>
-  );
+    this.state = {
+      value: ""
+    };
+  }
+
+  handleClick() {
+    this.setState(() => {
+      return {
+        value: "Button Clicked"
+      }
+    })
+  }
+  
+  handleChange(event) {
+    const { value } = event.target;
+    this.setState(() => {
+      return {
+        value
+      };
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>{this.state.value}</h2>
+        <Form placeholder="hello" handleChange={this.handleChange.bind(this)} />
+        <button onClick={this.handleClick.bind(this)}>Submit</button>
+      </div>
+    );
+  }
 }
 
 export default Homepage;
