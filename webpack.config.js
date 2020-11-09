@@ -11,6 +11,9 @@ module.exports = {
   devServer: {
     port: PORT_WEBPACK
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
