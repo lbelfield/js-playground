@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
 import Form from './form';
 
@@ -7,23 +7,23 @@ class Homepage extends Component {
     super();
 
     this.state = {
-      value: ""
+      value: '',
     };
   }
 
   handleClick() {
     this.setState(() => {
       return {
-        value: "Button Clicked"
-      }
-    })
+        value: 'Button Clicked',
+      };
+    });
   }
-  
+
   handleChange(event) {
-    const { value } = event.target;
+    const {value} = event.target;
     this.setState(() => {
       return {
-        value
+        value,
       };
     });
   }

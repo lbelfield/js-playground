@@ -5,7 +5,7 @@ import todoList from './routes/todoList';
 import login from './routes/login';
 
 const app = express();
-const { PORT_EXPRESS, URL } = process.env;
+const {PORT_EXPRESS, URL} = process.env;
 const port = parseInt(PORT_EXPRESS, 10);
 
 const onError = (error) => {
@@ -28,7 +28,7 @@ const onError = (error) => {
 };
 
 const expressServer = () => {
-  app.use('/', express.static(__dirname + '/static', { index: "homepage.html" }));
+  app.use('/', express.static(__dirname + '/static', {index: 'homepage.html'}));
 
   app.use('/api/users', apiUser);
   app.use('/login', login);
@@ -46,10 +46,10 @@ const expressServer = () => {
   });
 
   app
-    .listen(port, () => {
-      console.log(`Example app listening at ${URL}${port}`);
-    })
-    .on('error', onError);
+      .listen(port, () => {
+        console.log(`Example app listening at ${URL}${port}`);
+      })
+      .on('error', onError);
 
   return app;
 };

@@ -3,7 +3,7 @@ import createError from 'http-errors';
 
 import get from '../axios/get';
 
-const { TODO_LIST_URL } = process.env;
+const {TODO_LIST_URL} = process.env;
 
 const router = express.Router();
 
